@@ -1,0 +1,7 @@
+streamlit
+pandas
+openai
+langchain>=0.0.300
+faiss-cpu
+tiktoken
+openpyxl
