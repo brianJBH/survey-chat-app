@@ -37,6 +37,9 @@ if uploaded_file:
     text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     texts = text_splitter.create_documents(docs)
 
+    # ✅ 여기서 문서 수 줄이기 (RateLimit 회피용)
+    texts = texts[:10]  # 🔥 처음 10개 문서만 벡터화
+
     # 🧠 벡터 DB 생성
     embeddings = OpenAIEmbeddings()
     db = FAISS.from_documents(texts, embeddings)
